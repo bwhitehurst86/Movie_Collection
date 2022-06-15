@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">MENU_PROMPT = </span><span class="s1">&quot;</span><span class="s2">\n</span><span class="s1">Enter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: &quot;</span>
+<span class="s0">movies = []</span>
+
+
+<span class="s2">def </span><span class="s0">add_movie():</span>
+    <span class="s0">title = input(</span><span class="s1">&quot;Enter the movie title: &quot;</span><span class="s0">)</span>
+    <span class="s0">director = input(</span><span class="s1">&quot;Enter the movie director: &quot;</span><span class="s0">)</span>
+    <span class="s0">year = input(</span><span class="s1">&quot;Enter the movie release year: &quot;</span><span class="s0">)</span>
+
+    <span class="s0">movies.append({</span>
+        <span class="s1">'title'</span><span class="s0">: title</span><span class="s2">,</span>
+        <span class="s1">'director'</span><span class="s0">: director</span><span class="s2">,</span>
+        <span class="s1">'year'</span><span class="s0">: year</span>
+    <span class="s0">})</span>
+
+
+<span class="s2">def </span><span class="s0">show_movies():</span>
+    <span class="s2">for </span><span class="s0">movie </span><span class="s2">in </span><span class="s0">movies:</span>
+        <span class="s0">print_movie(movie)</span>
+
+
+<span class="s2">def </span><span class="s0">print_movie(movie):</span>
+    <span class="s0">print(</span><span class="s1">f&quot;Title: </span><span class="s2">{</span><span class="s0">movie[</span><span class="s1">'title'</span><span class="s0">]</span><span class="s2">}</span><span class="s1">)&quot;</span><span class="s0">)</span>
+    <span class="s0">print(</span><span class="s1">f&quot;Director: </span><span class="s2">{</span><span class="s0">movie[</span><span class="s1">'director'</span><span class="s0">]</span><span class="s2">}</span><span class="s1">&quot;</span><span class="s0">)</span>
+    <span class="s0">print(</span><span class="s1">f&quot;Release year: </span><span class="s2">{</span><span class="s0">movie[</span><span class="s1">'year'</span><span class="s0">]</span><span class="s2">}</span><span class="s1">&quot;</span><span class="s0">)</span>
+
+
+<span class="s2">def </span><span class="s0">find_movie():</span>
+    <span class="s0">search_title = input(</span><span class="s1">&quot;Enter movie title you are looking for: &quot;</span><span class="s0">)</span>
+
+    <span class="s2">for </span><span class="s0">movie </span><span class="s2">in </span><span class="s0">movies:</span>
+        <span class="s2">if </span><span class="s0">movie[</span><span class="s1">&quot;title&quot;</span><span class="s0">] == search_title:</span>
+            <span class="s0">print_movie(movie)</span>
+
+
+<span class="s2">def </span><span class="s0">menu():</span>
+    <span class="s0">selection = input(MENU_PROMPT)</span>
+    <span class="s2">while </span><span class="s0">selection != </span><span class="s1">'q'</span><span class="s0">:</span>
+        <span class="s2">if </span><span class="s0">selection == </span><span class="s1">'a'</span><span class="s0">:</span>
+            <span class="s0">add_movie()</span>
+        <span class="s2">elif </span><span class="s0">selection == </span><span class="s1">'l'</span><span class="s0">:</span>
+            <span class="s0">show_movies()</span>
+        <span class="s2">elif </span><span class="s0">selection == </span><span class="s1">'f'</span><span class="s0">:</span>
+            <span class="s0">find_movie()</span>
+        <span class="s2">else</span><span class="s0">:</span>
+            <span class="s0">print(</span><span class="s1">'Unknown command. Please try again.'</span><span class="s0">)</span>
+
+        <span class="s0">selection = input(MENU_PROMPT)</span>
+
+<span class="s0">menu()</span>
+
+
+</pre>
+</body>
+</html>
